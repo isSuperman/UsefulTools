@@ -1,8 +1,14 @@
 #!/bin/bash
 
+#
+# Copyright (c) 2019-2020 IsSuperman
+# https://github.com/IsSuperman/op-firemae
+# File name: formate_update.sh
+# Description: 格式化commit信息
 # $1 仓库所有者名字
 # $2 仓库名字
 # $3 commit日期 默认当前日期 格式 2021-01-01
+#
 
 now=$(date +"%Y-%m-%d")
 num=0
