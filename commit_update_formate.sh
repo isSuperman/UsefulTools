@@ -7,20 +7,22 @@
 now=$(date +"%Y-%m-%d")
 num=0
 
+
 if [[ "$#" < 2 ]]
 then
   echo "给定参数缺失"
+  exit 1
 fi
 
 if [[ "$3" != "" ]]
 then
   now=$3
 else
-  echo "未提供日期参数，默认使用当天日期"
+	echo "未提供日期参数，默认使用当天日期"
 fi
 
 # 获取所有Commit信息保存到 get_commit.log
-curl -fsSL "https://api.github.com/repos/$1/$2/commits" 2>&1 | tee get_commit.log
+curl -so get_commit.log "https://api.github.com/repos/$1/$2/commits" 
 
 sed -i 's/\[//' get_commit.log
 sed -i 's/\]//' get_commit.log
@@ -35,7 +37,6 @@ grep -Po '"commit":.*?(?=tree)' get_commit.log > str_commit.log
 while read line
 do	
 	result=$(echo $line | grep "$now")
-	#echo $result
 	if [[ "$result" != "" ]]
 	then 
 		echo $line >> day.log
