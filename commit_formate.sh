@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #
-# Copyright (c) 2019-2020 IsSuperman
+# Copyright (c) 2019-2021 IsSuperman
 # https://github.com/IsSuperman/op-firemae
-# File name: formate_update.sh
+# File name: commit_formate.sh
 # Description: 格式化commit信息
 # $1 仓库所有者名字
-# $2 仓库名字
+# $2仓库名字
 # $3 commit日期 默认当前日期 格式 2021-01-01
 #
 
