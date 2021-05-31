@@ -79,6 +79,7 @@ then
 	sed -i 's/<[^>]*>//g' day3.log
 	sed -i 's/\*\+//g' day3.log
 	sed -i 's#\\([^)]*)##g' day3.log
+	sed -i 's/\_/\\\-/g' day3.log
 else
 	echo "- Nothing...." >> day3.log
 	sed -i 's/\./\\\./g' day3.log
