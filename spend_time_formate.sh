@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#
+# Copyright (c) 2019-2021 isSuperman
+# https://github.com/isSuperman/UsefulTools
+# File name: commit_formate.sh
+# Description: 计算时间差并格式化为中文 xx小时xx分xx秒
+# $1 起始时间 $(date +%s)
+# $2 结束时间 同上
+#
 
 #start_date=`date +%s -d "2011-11-28 13:50:37"`
 #end_date=`date +%s -d "2011-11-28 15:55:52"`
