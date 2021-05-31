@@ -3,7 +3,7 @@
 #
 # Copyright (c) 2019-2021 isSuperman
 # https://github.com/isSuperman/UsefulTools
-# File name: commit_formate.sh
+# File name: spend_time_formate.sh
 # Description: 计算时间差并格式化为中文 xx小时xx分xx秒
 # $1 起始时间 $(date +%s)
 # $2 结束时间 同上
