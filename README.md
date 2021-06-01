@@ -8,11 +8,11 @@
 
 ### 使用方法
 ```shell
-./commit_formate.sh [options]
+./commit_formate.sh [user] [repo] *[date]
 ```
 - 第一个参数 仓库所有者名字 *必填*
 - 第二个参数 仓库名 *必填*
-- 第三个参数 commit提交日期 选填
+- 第三个参数 commit提交日期 格式 2021-01-01 选填
 
 ### 输出
 ```
