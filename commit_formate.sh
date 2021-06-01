@@ -47,6 +47,8 @@ do
 	then 
 		echo $line >> day.log
 		num=$(($num+1))	
+	else
+		break
 	fi
 	
 done < "./str_commit.log"
