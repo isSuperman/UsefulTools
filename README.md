@@ -30,3 +30,8 @@
 ```
 - Start time 起始时间戳 单位秒 date +%s
 - End time 截止时间戳 单位秒 同上
+
+### 输出
+```shell
+xx小时xx分xx秒
+```
