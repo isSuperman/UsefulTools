@@ -1,6 +1,6 @@
 # UsefulTools
 
-> 技术有限，写一些实用GitHub小脚本，方便数据处理
+> 技术有限，写一些实用shell小脚本，方便数据处理
 
 ## commit_formate.sh
 
