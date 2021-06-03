@@ -17,7 +17,7 @@ spend=`expr $2 - $1`
 
 if [[ $spend < 60 ]]
 then
-	if [[ "$3" != "zh" ]]
+	if [[ "$3" != "zh" && "$3" != "" ]]
 	then
 		echo "${spend}s"
 	else
@@ -30,7 +30,7 @@ then
 	min=`expr $spend / 60`
 	cha1=`expr $min \* 60`
 	sec=`expr $spend - $cha1`
-	if [[ "$3" != "zh" ]]
+	if [[ "$3" != "zh" && "$3" != "" ]]
 	then
 		echo "${min}m${sec}s"
 	else
@@ -48,7 +48,7 @@ then
 	min_s=`expr $min \* 60`
 	sec0=`expr $spend - $hour_s`
 	sec=`expr $sec0 - $min_s`
-	if [[ "$3" != "zh" ]]
+	if [[ "$3" != "zh" && "$3" != "" ]]
 	then
 		echo "${hour}h${min}m${sec}s"
 	else
