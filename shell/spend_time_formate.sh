@@ -15,18 +15,32 @@
 
 spend=`expr $2 - $1`
 
-if [[ $spend < 60 ]];then
-	echo "$spend秒"
+if [[ $spend < 60 ]]
+then
+	if [[ "$3" != "zh" ]]
+	then
+		echo "${spend}s"
+	else
+		echo "${spend}秒"
+	fi
 fi
 
-if [[ $spend > 60 ]]&&[[ $spend < 3600 ]];then
+if [[ $spend > 60 ]]&&[[ $spend < 3600 ]]
+then
 	min=`expr $spend / 60`
 	cha1=`expr $min \* 60`
 	sec=`expr $spend - $cha1`
-	echo "$min分$sec秒"
+	if [[ "$3" != "zh" ]]
+	then
+		echo "${min}m${sec}s"
+	else
+		echo "${min}分${sec}秒"	
+	fi
+	
 fi
 
-if [[ $spend > 3600 ]];then
+if [[ $spend > 3600 ]]
+then
 	hour=`expr $spend / 3600`
 	hour_s=`expr $hour \* 3600`
 	min0=`expr $spend - $hour_s`
@@ -34,5 +48,10 @@ if [[ $spend > 3600 ]];then
 	min_s=`expr $min \* 60`
 	sec0=`expr $spend - $hour_s`
 	sec=`expr $sec0 - $min_s`
-	echo "$hour小时$min分$sec秒"
+	if [[ "$3" != "zh" ]]
+	then
+		echo "${hour}h${min}m${sec}s"
+	else
+		echo "${hour}小时${min}分${sec}秒"	
+	fi
 fi
