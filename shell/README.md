@@ -1,7 +1,3 @@
-# UsefulTools
-
-> 技术有限，写一些实用shell小脚本，方便数据处理
-
 ## commit_formate.sh
 
 根据给定参数实现指定仓库commit信息的格式化
