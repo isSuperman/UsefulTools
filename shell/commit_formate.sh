@@ -87,6 +87,3 @@ else
 	sed -i 's/\./\\\./g' day3.log
 	sed -i 's/\-/\\\-/g' day3.log
 fi
-
-echo "$(cat day3.log)"
-rm -rf get_commit.log str_commit.log day.log day2.log day3.log
