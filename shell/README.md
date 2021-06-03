@@ -26,12 +26,14 @@
 
 ### 使用方法
 ```shell
-./spend_time_formate.sh [Start time] [End time]
+./spend_time_formate.sh [Start time] [End time] *[lang]
 ```
 - Start time 起始时间戳 单位秒 date +%s
 - End time 截止时间戳 单位秒 同上
+- lang 输出语言 默认中文 选填'en' 英文
 
 ### 输出
 ```shell
 xx小时xx分xx秒
+2h1m4s
 ```
