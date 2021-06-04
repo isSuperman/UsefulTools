@@ -13,13 +13,28 @@ now_day=$(date "+%d")
 dd=""
 dd2=""
 
+day_num=`expr $1 - $now_day`
 
-if [[ "$1" == "$now_day" ]]
-then
-	dd="今天"
-else
+case $day_num in
+2)
+	dd="后天"
+	;;
+1)
 	dd="明天"
-fi
+	;;
+0)
+	dd="今天"
+	;;
+[-][1])
+	dd="昨天"
+	;;
+[-][2])
+	dd="前天"
+	;;
+*)
+	dd="$1日"
+esac
+
 
 case $2 in
 [0-6])
