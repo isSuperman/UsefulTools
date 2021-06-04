@@ -14,7 +14,7 @@ dd=""
 dd2=""
 
 
-if [[ $1 == $now_day ]]
+if [[ "$1" == $now_day ]]
 then
 	dd="今天"
 else
