@@ -32,7 +32,7 @@ then
 	sec=`expr $spend - $cha1`
 	if [[ "$3" != "zh" && "$3" != "" ]]
 	then
-		echo "${min}m${sec}s"
+		echo "${min}m ${sec}s"
 	else
 		echo "${min}分${sec}秒"	
 	fi
@@ -50,7 +50,7 @@ then
 	sec=`expr $sec0 - $min_s`
 	if [[ "$3" != "zh" && "$3" != "" ]]
 	then
-		echo "${hour}h${min}m${sec}s"
+		echo "${hour}h ${min}m ${sec}s"
 	else
 		echo "${hour}小时${min}分${sec}秒"	
 	fi
