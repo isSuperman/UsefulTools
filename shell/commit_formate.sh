@@ -44,8 +44,6 @@ do
 	break
 done < "./date_commit_list.log"
 
-sed -i 's/\-/\\\-/g' recent_date.log
-
 while read line
 do	
 	result=$(echo $line | grep "$recent_date")
@@ -78,6 +76,7 @@ done < "./day2.log"
 sed -i ':a;N;$!ba;s/\n//g' day3.log
 
 # 防止转义-
+sed -i 's/\-/\\\-/g' recent_date.log
 sed -i 's/\-/\\\-/g' day3.log
 sed -i 's/\./\\\./g' day3.log
 sed -i 's/(/\\(/g' day3.log
