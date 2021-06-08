@@ -40,6 +40,7 @@ grep -Po '(?<="date": ").*?(?=T)' str_commit.log > date_commit_list.log
 while read line
 do
 	recent_date="$line"
+	echo "$recent_date" > recent_date.log
 	break
 done < "./date_commit_list.log"
 
