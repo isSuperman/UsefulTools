@@ -44,6 +44,8 @@ do
 	break
 done < "./date_commit_list.log"
 
+sed -i 's/\-/\\\-/g' recent_date.log
+
 while read line
 do	
 	result=$(echo $line | grep "$recent_date")
