@@ -85,8 +85,8 @@ sed -i 's/(/\\(/g' day3.log
 sed -i 's/)/\\)/g' day3.log
 sed -i 's/\#/\\#/g' day3.log
 sed -i 's/<[^>]*>//g' day3.log
-sed -i 's/\>\=/\\>\\=/g' day3.log
-sed -i 's/\<\=/\\<\\=/g' day3.log
+sed -i 's/\>\=/大于等于/g' day3.log
+sed -i 's/\<\=/小于等于/g' day3.log
 sed -i 's/\*\+//g' day3.log
 sed -i 's#\\([^)]*)##g' day3.log
 sed -i 's/\_/\\-/g' day3.log
