@@ -13,7 +13,7 @@
 now=$(date +"%Y-%m-%d")
 now_year=$(date +"%Y")
 recent_date=""
-numbers=(0,"①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱")
+nbs=(0,"①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱")
 
 if [[ "$#" < 2 ]]
 then
@@ -69,9 +69,9 @@ do
 	dayy=$(($dayy+1))
 	if [[ "$dayy" == 1 ]]
 	then
-		echo "$numners[${dayy}]\.${line}" >> day3.log
+		echo "$nbs[${dayy}]\.${line}" >> day3.log
 	else
-		echo "\n$numners[${dayy}]\.${line}" >> day3.log
+		echo "\n$nbs[${dayy}]\.${line}" >> day3.log
 	fi
 done < "./day2.log"
 # 去掉回车换行
