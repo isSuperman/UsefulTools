@@ -69,9 +69,9 @@ do
 	dayy=$(($dayy+1))
 	if [[ "$dayy" == 1 ]]
 	then
-		echo "${numbers}[$dayy]${line}" >> day3.log
+		echo "${numbers}[$LINENO]${line}" >> day3.log
 	else
-		echo "\n${numbers}[$dayy]${line}" >> day3.log
+		echo "\n${numbers}[$LINENO]${line}" >> day3.log
 	fi
 done < "./day2.log"
 # 去掉回车换行
