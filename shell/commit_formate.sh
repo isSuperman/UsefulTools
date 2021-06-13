@@ -62,13 +62,13 @@ done < "./str_commit.log"
 grep -Po '(?<="message": ").*?(?=")' day.log > day2.log
 sed -i 's#).*$#)#g' day2.log
 
-dayy=1
+dayy=0
 
 while read line
 do
+	dayy=$(($dayy+1))
 	if [[ "$dayy" == 1 ]]
 	then
-		dayy=$(($dayy+1))
 		echo "${numbers}[$dayy]${line}" >> day3.log
 	else
 		echo "\n${numbers}[$dayy]${line}" >> day3.log
