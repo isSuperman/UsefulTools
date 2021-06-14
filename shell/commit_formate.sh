@@ -15,7 +15,6 @@ now_year=$(date +"%Y")
 recent_date=""
 nbs=(0 "①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩" "⑪" "⑫" "⑬" "⑭" "⑮" "⑯" "⑰" "⑱")
 
-# _ * [ ] ( ) ~ ` > < #" "+" "-" "=" "|" "{" "}" "." "!")
 
 if [[ "$#" < 2 ]]
 then
@@ -80,17 +79,40 @@ done < "./day2.log"
 sed -i ':a;N;$!ba;s/\n//g' day3.log
 
 # 防止转义-
+
 sed -i "s/${now_year}-//g" recent_date.log
 sed -i 's/\-/\\./g' recent_date.log
 
-sed -i 's/\-/\\-/g' day3.log
-sed -i 's/\./\\./g' day3.log		
-sed -i 's/(/\\(/g' day3.log
-sed -i 's/)/\\)/g' day3.log
-sed -i 's/\#/\\#/g' day3.log
+#	sed -i 's/\-/\\-/g' day3.log
+#sed -i 's/\./\\./g' day3.log		
+#sed -i 's/(/\\(/g' day3.log
+#sed -i 's/)/\\)/g' day3.log
+#sed -i 's/\#/\\#/g' day3.log
 sed -i 's/<[^>]*>//g' day3.log
-sed -i 's#>=#\\>\\=#g' day3.log
-sed -i 's#<=#\\<\\=#g' day3.log
+#sed -i 's#>=#\\>\\=#g' day3.log
+#sed -i 's#<=#\\<\\=#g' day3.log
 #sed -i 's/\*\+//g' day3.log
 sed -i 's#\\([^)]*)##g' day3.log
-sed -i 's/\_/\\-/g' day3.log	
+#sed -i 's/\_/\\-/g' day3.log	
+
+# _ * [ ] ( ) ~ ` > < #" "+" "-" "=" "|" "{" "}" "." "!")
+
+sed -i 's/\_/\\_/g' day3.log	
+sed -i 's#\*#\\*#g' day3.log
+sed -i 's/[/\\[/g' day3.log	
+sed -i 's/]/\\]/g' day3.log
+sed -i 's/(/\\(/g' day3.log
+sed -i 's/)/\\)/g' day3.log
+sed -i 's/~/\\~/g' day3.log
+sed -i 's#\`#\\`#g' day3.log
+sed -i 's#>#\\>#g' day3.log
+sed -i 's#<#\\<#g' day3.log
+sed -i 's/\#/\\#/g' day3.log
+sed -i 's#\+#\\+#g' day3.log
+sed -i 's/\-/\\-/g' day3.log
+sed -i 's#=#\\=#g' day3.log
+sed -i 's#\|#\\|#g' day3.log
+sed -i 's#{#\\{#g' day3.log
+sed -i 's#}#\\}#g' day3.log
+sed -i 's/\./\\./g' day3.log
+sed -i 's#!#\\!#g' day3.log
