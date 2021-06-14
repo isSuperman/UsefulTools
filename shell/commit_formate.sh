@@ -83,20 +83,14 @@ sed -i ':a;N;$!ba;s/\n//g' day3.log
 sed -i "s/${now_year}-//g" recent_date.log
 sed -i 's/\-/\\./g' recent_date.log
 
-for((i=0;i<=18;i++));  
-do
-	sed -i "s/\${sbs[i]}/\\${sbs[i]}/g" day3.log
-	#sed -i "s#\${sbs[i]}#\\${sbs[i]}#g" day3.log
-done
-
-#sed -i 's/\-/\\-/g' day3.log
-#sed -i 's/\./\\./g' day3.log		
-#sed -i 's/(/\\(/g' day3.log
-#sed -i 's/)/\\)/g' day3.log
-#sed -i 's/\#/\\#/g' day3.log
+sed -i 's/\-/\\-/g' day3.log
+sed -i 's/\./\\./g' day3.log		
+sed -i 's/(/\\(/g' day3.log
+sed -i 's/)/\\)/g' day3.log
+sed -i 's/\#/\\#/g' day3.log
 sed -i 's/<[^>]*>//g' day3.log
-#sed -i 's#>=#\\>\\=#g' day3.log
-#sed -i 's#<=#\\<\\=#g' day3.log
+sed -i 's#>=#\\>\\=#g' day3.log
+sed -i 's#<=#\\<\\=#g' day3.log
 #sed -i 's/\*\+//g' day3.log
 sed -i 's#\\([^)]*)##g' day3.log
-#sed -i 's/\_/\\-/g' day3.log	
+sed -i 's/\_/\\-/g' day3.log	
