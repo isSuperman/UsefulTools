@@ -15,6 +15,27 @@ now_year=$(date +"%Y")
 recent_date=""
 nbs=(0 "①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩" "⑪" "⑫" "⑬" "⑭" "⑮" "⑯" "⑰" "⑱")
 
+sbs=(
+"_"
+"*"
+"["
+"]"
+"("
+")"
+"~"
+"`"
+">"
+"<"
+"#"
+"+"
+"-"
+"="
+"|"
+"{"
+"}"
+"."
+"!")
+
 if [[ "$#" < 2 ]]
 then
   echo "给定参数缺失"
@@ -80,14 +101,21 @@ sed -i ':a;N;$!ba;s/\n//g' day3.log
 # 防止转义-
 sed -i "s/${now_year}-//g" recent_date.log
 sed -i 's/\-/\\./g' recent_date.log
-sed -i 's/\-/\\-/g' day3.log
-sed -i 's/\./\\./g' day3.log		
-sed -i 's/(/\\(/g' day3.log
-sed -i 's/)/\\)/g' day3.log
-sed -i 's/\#/\\#/g' day3.log
+
+for((i=0;i<=19;i++));  
+do
+	sed -i "s/${sbs[i]}//g" day3.log
+	sed -i "s#${sbs[i]}##g" day3.log
+done
+
+#sed -i 's/\-/\\-/g' day3.log
+#sed -i 's/\./\\./g' day3.log		
+#sed -i 's/(/\\(/g' day3.log
+#sed -i 's/)/\\)/g' day3.log
+#sed -i 's/\#/\\#/g' day3.log
 sed -i 's/<[^>]*>//g' day3.log
-sed -i 's#>=#\\>\\=#g' day3.log
-sed -i 's#<=#\\<\\=#g' day3.log
-sed -i 's/\*\+//g' day3.log
+#sed -i 's#>=#\\>\\=#g' day3.log
+#sed -i 's#<=#\\<\\=#g' day3.log
+#sed -i 's/\*\+//g' day3.log
 sed -i 's#\\([^)]*)##g' day3.log
-sed -i 's/\_/\\-/g' day3.log
+#sed -i 's/\_/\\-/g' day3.log	
