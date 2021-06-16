@@ -13,11 +13,14 @@
 #start_date=`date +%s -d "2011-11-28 13:50:37"`
 #end_date=`date +%s -d "2011-11-28 15:55:52"`
 
+amin=60
+ahour=3600
+
 spend=`expr $2 - $1`
 
-if [[ $spend < 60 ]]
+if [ $spend -lt $amin ]
 then
-	if [[ "$3" != "zh" && "$3" != "" ]]
+	if [ "$3" -ne "zh" -a "$3" -ne "" ]
 	then
 		echo "${spend}s"
 	else
@@ -25,12 +28,12 @@ then
 	fi
 fi
 
-if [[ $spend > 60 ]]&&[[ $spend < 3600 ]]
+if [ $spend -gt $amin -a $spend -lt $ahour ]
 then
 	min=`expr $spend / 60`
 	cha1=`expr $min \* 60`
 	sec=`expr $spend - $cha1`
-	if [[ "$3" != "zh" && "$3" != "" ]]
+	if [ "$3" -ne "zh" -a "$3" -ne "" ]
 	then
 		echo "${min}m ${sec}s"
 	else
@@ -39,7 +42,7 @@ then
 	
 fi
 
-if [[ $spend > 3600 ]]
+if [ $spend -gt $ahour ]
 then
 	hour=`expr $spend / 3600`
 	hour_s=`expr $hour \* 3600`
@@ -48,7 +51,7 @@ then
 	min_s=`expr $min \* 60`
 	sec0=`expr $spend - $hour_s`
 	sec=`expr $sec0 - $min_s`
-	if [[ "$3" != "zh" && "$3" != "" ]]
+	if [ "$3" -ne "zh" -a "$3" -ne "" ]
 	then
 		echo "${hour}h ${min}m ${sec}s"
 	else
