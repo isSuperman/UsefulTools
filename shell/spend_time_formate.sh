@@ -7,7 +7,6 @@
 # Description: 计算时间差并格式化为中/英文 xx小时xx分xx秒
 # $1 起始时间 $(date +%s)
 # $2 结束时间 同上
-# $3 语言 'zh'/'en'
 #
 
 #start_date=`date +%s -d "2011-11-28 13:50:37"`
@@ -20,12 +19,7 @@ spend=`expr $2 - $1`
 
 if [ $spend -lt $amin ]
 then
-	if [ "$3" -ne "zh" -a "$3" -ne "" ]
-	then
-		echo "${spend}s"
-	else
-		echo "${spend}秒"
-	fi
+	echo "${spend}s"
 fi
 
 if [ $spend -gt $amin -a $spend -lt $ahour ]
@@ -33,13 +27,7 @@ then
 	min=`expr $spend / $amin`
 	cha1=`expr $min \* $amin`
 	sec=`expr $spend - $cha1`
-	if [ "$3" -ne "zh" -a "$3" -ne "" ]
-	then
-		echo "${min}m ${sec}s"
-	else
-		echo "${min}分${sec}秒"	
-	fi
-	
+	echo "${min}m ${sec}s"
 fi
 
 if [ $spend -gt $ahour ]
@@ -51,10 +39,5 @@ then
 	min_s=`expr $min \* $amin`
 	sec0=`expr $spend - $hour_s`
 	sec=`expr $sec0 - $min_s`
-	if [ "$3" -ne "zh" -a "$3" -ne "" ]
-	then
-		echo "${hour}h ${min}m ${sec}s"
-	else
-		echo "${hour}小时${min}分${sec}秒"	
-	fi
+	echo "${hour}h ${min}m ${sec}s"
 fi
