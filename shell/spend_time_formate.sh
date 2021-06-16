@@ -30,8 +30,8 @@ fi
 
 if [ $spend -gt $amin -a $spend -lt $ahour ]
 then
-	min=`expr $spend / 60`
-	cha1=`expr $min \* 60`
+	min=`expr $spend / $amin`
+	cha1=`expr $min \* $amin`
 	sec=`expr $spend - $cha1`
 	if [ "$3" -ne "zh" -a "$3" -ne "" ]
 	then
@@ -44,11 +44,11 @@ fi
 
 if [ $spend -gt $ahour ]
 then
-	hour=`expr $spend / 3600`
-	hour_s=`expr $hour \* 3600`
+	hour=`expr $spend / $ahour`
+	hour_s=`expr $hour \* $ahour`
 	min0=`expr $spend - $hour_s`
-	min=`expr $min0 / 60`
-	min_s=`expr $min \* 60`
+	min=`expr $min0 / $amin`
+	min_s=`expr $min \* $amin`
 	sec0=`expr $spend - $hour_s`
 	sec=`expr $sec0 - $min_s`
 	if [ "$3" -ne "zh" -a "$3" -ne "" ]
