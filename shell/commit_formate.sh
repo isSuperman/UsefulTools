@@ -83,7 +83,6 @@ sed -i "s/${now_year}-//g" recent_date.log
 sed -i 's/\-/\\./g' recent_date.log
 
 sed -i 's/\-/\\-/g' day3.log
-sed -i 's/\"'"/\\"'"/g' day3.log
 sed -i 's/\./\\./g' day3.log		
 sed -i 's/(/\\(/g' day3.log
 sed -i 's/)/\\)/g' day3.log
@@ -94,4 +93,4 @@ sed -i 's#<=#\\<\\=#g' day3.log
 #sed -i 's/\*\+//g' day3.log
 sed -i 's#\\([^)]*)##g' day3.log
 sed -i 's/\_/\\-/g' day3.log	
-
+sed -i $'s/\'/\\'/g' day3.log
