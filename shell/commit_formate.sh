@@ -69,9 +69,9 @@ do
 	dayy=$(($dayy+1))
 	if [[ "$dayy" == 1 ]]
 	then
-		echo "\-${dayy}\- ${line}" >> day3.log
+		echo "${dayy}\.\.\. ${line}" >> day3.log
 	else
-		echo "\n\-${dayy}\- ${line}" >> day3.log
+		echo "\n${dayy}\.\.\. ${line}" >> day3.log
 	fi
 done < "./day2.log"
 # 去掉回车换行
@@ -90,7 +90,6 @@ sed -i 's/\#/\\#/g' day3.log
 sed -i 's/<[^>]*>//g' day3.log
 sed -i 's#>=#\\>\\=#g' day3.log
 sed -i 's#<=#\\<\\=#g' day3.log
-#sed -i 's/\*\+//g' day3.log
 sed -i 's#\\([^)]*)##g' day3.log
 sed -i 's/\_/\\-/g' day3.log	
 sed -i $'s/\'//g' day3.log
