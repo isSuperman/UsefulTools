@@ -14,6 +14,8 @@ now=$(date +"%Y-%m-%d")
 now_year=$(date +"%Y")
 recent_date=""
 
+nbs=(0 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ㊶ ㊷ ㊸ ㊹ ㊺ ㊻ ㊼ ㊽ ㊾ ㊿)
+
 
 if [[ "$#" < 2 ]]
 then
@@ -69,9 +71,9 @@ do
 	dayy=$(($dayy+1))
 	if [[ "$dayy" == 1 ]]
 	then
-		echo "「${dayy}」${line}" >> day3.log
+		echo "${nbs[dayy]} ${line}" >> day3.log
 	else
-		echo "\n「${dayy}」${line}" >> day3.log
+		echo "\n${nbs[dayy]} ${line}" >> day3.log
 	fi
 done < "./day2.log"
 # 去掉回车换行
