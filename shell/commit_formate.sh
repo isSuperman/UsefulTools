@@ -12,7 +12,6 @@
 
 now=$(date +"%Y-%m-%d")
 now_year=$(date +"%Y")
-recent_date=""
 
 nbs=(0 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ㊶ ㊷ ㊸ ㊹ ㊺ ㊻ ㊼ ㊽ ㊾ ㊿)
 
@@ -43,6 +42,7 @@ grep -Po '(?<="date": ").*?(?=T)' str_commit.log > date_commit_list.log
 
 
 recent_date=$(sed -n '1p' date_commit_list.log)
+echo "${recent_date}" > recent_date.log
 
 while read line
 do	
