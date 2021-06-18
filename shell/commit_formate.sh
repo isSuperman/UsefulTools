@@ -27,7 +27,6 @@ then
 	echo "未提供日期参数，默认获取最新commit信息"
 fi
 
-# 获取所有Commit信息保存到 get_commit.log
 curl -so get_commit.log "https://api.github.com/repos/$1/$2/commits" 
 sed -i 's/\[//' get_commit.log
 sed -i 's/\]//' get_commit.log
@@ -75,8 +74,6 @@ do
 done < "./day2.log"
 # 去掉回车换行
 sed -i ':a;N;$!ba;s/\n//g' day3.log
-
-# 防止转义-
 
 sed -i "s/${now_year}-//g" recent_date.log
 sed -i 's/\-/\\./g' recent_date.log
