@@ -37,8 +37,9 @@ sed -i '/^$/d' get_commit.log
 sed -i 's/^[ \t]*//' get_commit.log
 sed -i ':a;N;$!ba;s/\n//g' get_commit.log
 
-grep -Po '"commit":.*?(?=tree)' get_commit.log > str_commit.log
+grep -Po '"commit":.*?(?=","tree)' get_commit.log > str_commit.log
 grep -Po '(?<="date": ").*?(?=T)' str_commit.log > date_commit_list.log
+sed -i 's/\\n\\n.*$//g' str_commit.log
 
 
 recent_date=$(sed -n '1p' date_commit_list.log)
@@ -57,7 +58,7 @@ do
 	
 done < "./str_commit.log"
 
-grep -Po '(?<="message": ").*?(?=")' day.log > day2.log
+grep -Po '(?<="message": ").*?(?=$)' day.log > day2.log
 sed -i 's#).*$#)#g' day2.log
 
 dayy=0
