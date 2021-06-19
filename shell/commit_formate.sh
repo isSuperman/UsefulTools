@@ -26,12 +26,7 @@ fi
 get_commit_2str(){
 	for branch in $branches
 	do
-		if [ "${branch}" -eq "lede" ]
-		then
-			curl -so get_commit_${branch}.log "https://api.github.com/repos/$1/$2/commits" 
-		else
-			curl -so get_commit_${branch}.log "https://api.github.com/repos/$1/$2/commits?sha=$branch" 
-		fi
+		curl -so get_commit_${branch}.log "https://api.github.com/repos/$1/$2/commits?sha=$branch" 
 		sed -i 's/\[//' get_commit_${branch}.log
 		sed -i 's/\]//' get_commit_${branch}.log
 		sed -i 's#{##' get_commit_${branch}.log
