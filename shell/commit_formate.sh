@@ -25,10 +25,20 @@ then
 fi
 
 ## Funvtions
-get_commit_2str(){
+get_commits(){
+	for branch in $branches
+	do	
+		echo "start get ${branch}"
+		curl -so get_commit_${branch}.log "https://api.github.com/repos/${ower}/${repo_name}/commits?sha=${branch}" 
+		cat get_commit_${branch}.log
+		echo "get ${branch} over"
+		
+	done
+}
+formate_commits_2str(){
 	for branch in $branches
 	do
-		curl -so get_commit_${branch}.log "https://api.github.com/repos/${ower}/${repo_name}/commits?sha=${branch}" 
+		echo "start formate get_commit_${branch}.log"
 		sed -i 's/\[//' get_commit_${branch}.log
 		sed -i 's/\]//' get_commit_${branch}.log
 		sed -i 's#{##' get_commit_${branch}.log
@@ -122,7 +132,8 @@ formate_result(){
 }
 
 # Call funtions
-get_commit_2str
+get_commits
+formate_commits_2str
 get_latest_date
 formate_result
 
