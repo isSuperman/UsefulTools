@@ -109,7 +109,7 @@ generate_info(){
 				then
 					if [[ "$(cat day2_${branch}.log)" != "" ]]
 					then
-						echo "\- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
+						echo "\n\- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
 					fi
 				else
 					echo "\n${nbs[dayy]} ${line}" >> day3.log
