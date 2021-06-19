@@ -6,7 +6,7 @@
 # File name: commit_formate.sh
 # Description: 格式化commit信息lede专用
 # $1 仓库所有者名字
-# $2仓库名字
+# $2 仓库名字
 #
 
 now=$(date +"%Y-%m-%d")
@@ -26,7 +26,7 @@ fi
 get_commit_2str(){
 	for branch in $branches
 	do
-		if [[ "${branch}" == "lede" ]]
+		if [ "${branch}" -eq "lede" ]
 		then
 			curl -so get_commit_${branch}.log "https://api.github.com/repos/$1/$2/commits" 
 		else
