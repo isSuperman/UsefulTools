@@ -46,7 +46,7 @@ get_latest_date(){
 	done
 	while read line
 	do
-		echo "$(date -d ${line} +%s)" >> recent_d_sec.log
+		echo "$(date -d @${line} '+%s')" >> recent_d_sec.log
 	done
 	max=$(sed -n '1p' recent_d_sec.log)
 	while read line
