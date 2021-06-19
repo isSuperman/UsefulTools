@@ -107,13 +107,7 @@ generate_info(){
 				dayy=$(($dayy+1))
 				if [[ "$dayy" == 1 ]]
 				then
-					if [ ! -f "./day3.log" ]
-					then
-						echo "\n- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
-					else
-						echo "\n\n- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
-					fi
-					
+					echo "\n\n- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log					
 				else
 					echo "\n${nbs[dayy]} ${line}" >> day3.log
 				fi
