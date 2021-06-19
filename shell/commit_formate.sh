@@ -98,7 +98,7 @@ generate_info(){
 
 		dayy=0
 		
-		if [ -f "day_${branch}.log" ];
+		if [ -f "./day_${branch}.log" ];
 		then
 			grep -Po '(?<="message": ").*?(?=$)' day_${branch}.log > day2_${branch}.log
 			sed -i 's#).*$#)#g' day2_${branch}.log
@@ -107,7 +107,7 @@ generate_info(){
 				dayy=$(($dayy+1))
 				if [[ "$dayy" == 1 ]]
 				then
-					if [ ! -f "day3.log" ]
+					if [ ! -f "./day3.log" ]
 					then
 						echo "\n- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
 					else
