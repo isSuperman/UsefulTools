@@ -71,7 +71,7 @@ generate_info(){
 			then 
 				echo $line >> day_${branch}.log
 			else
-				break
+				echo "nothing" >> day_${branch}.log
 			fi
 		done < "./str_commit.log"
 
