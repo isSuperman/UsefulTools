@@ -30,7 +30,6 @@ get_commits(){
 	do	
 		echo "start get ${branch}"
 		curl -so get_commit_${branch}.log "https://api.github.com/repos/${ower}/${repo_name}/commits?sha=${branch}" 
-		cat get_commit_${branch}.log
 		echo "get ${branch} over"
 		
 	done
