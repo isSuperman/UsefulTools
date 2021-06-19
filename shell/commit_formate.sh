@@ -94,7 +94,7 @@ generate_info(){
 			else
 				break
 			fi
-		done < $(cat str_commit_${branch}.log)
+		done < "./str_commit_${branch}.log"
 
 		dayy=0
 		
