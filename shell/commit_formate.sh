@@ -40,13 +40,16 @@ get_commit_2str(){
 }
 
 get_latest_date(){
-	for branch in $(ls str_commit_*.log)
+	for branch in $(ls str_commit_*)
 	do
-		cat $branch | grep -Po '(?<="date": ").*?(?=T)' | sed -n '1p' | tee -a recent_d.log
+		committ=$(cat $branch)
+        	grep -Po '(?<="date": ").*?(?=T)' $committ > recent_dd.log
+        	sed -n '1p' recent_dd.log >> recent_d.log
 	done
+	
 	while read line
 	do
-		echo "$(date -d @${line} '+%s')" >> recent_d_sec.log
+		echo "$(date -d "${line}" +%s)" >> recent_d_sec.log
 	done < './recent_d.log'
 	
 	max=$(sed -n '1p' recent_d_sec.log)
