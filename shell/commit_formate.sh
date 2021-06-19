@@ -48,21 +48,27 @@ formate_commits_2str(){
 		sed -i ':a;N;$!ba;s/\n//g' get_commit_${branch}.log
 		grep -Po '"commit":.*?(?=","tree)' get_commit_${branch}.log > str_commit_${branch}.log
 		sed -i 's/\\n\\n.*$//g' str_commit_${branch}.log
+		echo "formate over"
 	done
 }
 
 get_latest_date(){
 	for branch in $(ls str_commit_*)
-	do
+	do	
+		echo "start get recent date in ${branch}"
 		committ=$(cat $branch)
         	grep -Po '(?<="date": ").*?(?=T)' $committ > recent_dd.log
         	sed -n '1p' recent_dd.log >> recent_d.log
+		cat recent_d.log
 	done
 	
 	while read line
 	do
 		echo "$(date -d "${line}" +%s)" >> recent_d_sec.log
 	done < './recent_d.log'
+	
+	echo "recent_d_sec::::::::"
+	cat recent_d_sec.log
 	
 	max=$(sed -n '1p' recent_d_sec.log)
 	while read line
@@ -72,6 +78,7 @@ get_latest_date(){
 			max=$line
 		fi
 	done < "./recent_d_sec.log"
+	echo "max is ${max}"
 	recent_date=$(date -d @$max '+%Y-%m-%d')
 	echo "${recent_date}" > recent_date.log
 }
