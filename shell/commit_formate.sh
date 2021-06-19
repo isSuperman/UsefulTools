@@ -12,6 +12,8 @@
 now=$(date +"%Y-%m-%d")
 now_year=$(date +"%Y")
 branches=(lede luci packages helloworld)
+ower=$1
+repo_name=$2
 
 nbs=(0 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ㊶ ㊷ ㊸ ㊹ ㊺ ㊻ ㊼ ㊽ ㊾ ㊿)
 
@@ -26,7 +28,7 @@ fi
 get_commit_2str(){
 	for branch in $branches
 	do
-		curl -so get_commit_${branch}.log "https://api.github.com/repos/$1/$2/commits?sha=${branch}" 
+		curl -so get_commit_${branch}.log "https://api.github.com/repos/${ower}/${repo_name}/commits?sha=${branch}" 
 		sed -i 's/\[//' get_commit_${branch}.log
 		sed -i 's/\]//' get_commit_${branch}.log
 		sed -i 's#{##' get_commit_${branch}.log
