@@ -140,6 +140,7 @@ formate_result(){
 get_commits
 formate_commits_2str
 get_latest_date
+generate_info
 formate_result
 
 sed -i $'s/\'//g' day3.log
