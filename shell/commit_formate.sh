@@ -11,7 +11,7 @@
 
 now=$(date +"%Y-%m-%d")
 now_year=$(date +"%Y")
-branches=(lede luci packages helloworld)
+branches="lede luci packages helloworld"
 ower=$1
 repo_name=$2
 
