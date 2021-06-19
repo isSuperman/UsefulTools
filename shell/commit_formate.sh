@@ -40,9 +40,9 @@ get_commit_2str(){
 }
 
 get_latest_date(){
-	for branch in branches
+	for branch in $(ls str_commit_*.log)
 	do
-		grep -Po '(?<="date": ").*?(?=T)' str_commit_${branch}.log | sed -n '1p' | tee -a recent_d.log
+		cat $branch | grep -Po '(?<="date": ").*?(?=T)' | sed -n '1p' | tee -a recent_d.log
 	done
 	while read line
 	do
@@ -61,7 +61,7 @@ get_latest_date(){
 }
 
 generate_info(){
-	for branch in branches
+	for branch in $(ls str_commit_*.log)
 	do
 		while read line
 		do	
@@ -71,10 +71,10 @@ generate_info(){
 			then 
 				echo $line >> day_${branch}.log
 			else
-				echo "nothing" >> day_${branch}.log
+				break
 			fi
-		done < "./str_commit.log"
-
+		done < $(cat $branch)
+# 这里
 		grep -Po '(?<="message": ").*?(?=$)' day_${branch}.log > day2_${branch}.log
 		sed -i 's#).*$#)#g' day2_${branch}.log
 
