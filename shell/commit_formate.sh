@@ -56,7 +56,7 @@ get_latest_date(){
 			max=$line
 		fi
 	done < "./recent_d.log"
-	recent_date=`date -d @$max "+%Y-%m-%d"`
+	recent_date=$(date -d @$max '+%Y-%m-%d')
 	echo "${recent_date}" > recent_date.log
 }
 
