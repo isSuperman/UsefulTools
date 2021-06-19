@@ -130,7 +130,8 @@ formate_result(){
 	sed -i 's#>=#\\>\\=#g' day3.log
 	sed -i 's#<=#\\<\\=#g' day3.log
 	sed -i 's#\\([^)]*)##g' day3.log
-	sed -i 's/\_/\\-/g' day3.log		
+	sed -i 's/\_/\\-/g' day3.log
+	sed -i 's/&/and/g' day3.log
 }
 
 # Call funtions
