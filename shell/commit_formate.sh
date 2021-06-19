@@ -61,7 +61,7 @@ get_latest_date(){
 }
 
 generate_info(){
-	for branch in $(ls str_commit_*.log)
+	for branch in branches
 	do
 		while read line
 		do	
@@ -73,29 +73,29 @@ generate_info(){
 			else
 				break
 			fi
-		done < $(cat $branch)
-# 这里
-		grep -Po '(?<="message": ").*?(?=$)' day_${branch}.log > day2_${branch}.log
-		sed -i 's#).*$#)#g' day2_${branch}.log
+		done < $(cat str_commit_${branch}.log)
 
 		dayy=0
-
-		while read line
-		do
-			dayy=$(($dayy+1))
-			if [[ "$dayy" == 1 ]]
-			then
-				if [[ "${branch}" == "lede" ]]
+		
+		if [ -f "day_${branch}.log" ];
+		then
+			grep -Po '(?<="message": ").*?(?=$)' day_${branch}.log > day2_${branch}.log
+			sed -i 's#).*$#)#g' day2_${branch}.log
+			while read line
+			do
+				dayy=$(($dayy+1))
+				if [[ "$dayy" == 1 ]]
 				then
-					echo "\- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
+					if [[ "$(cat day2_${branch}.log)" != "" ]]
+					then
+						echo "\- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
+					fi
 				else
-					echo "\n\- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
+					echo "\n${nbs[dayy]} ${line}" >> day3.log
 				fi
-				
-			else
-				echo "\n${nbs[dayy]} ${line}" >> day3.log
-			fi
-		done < "./day2_${branch}.log"
+			done < "./day2_${branch}.log"
+		fi
+		
 	done
 }
 
