@@ -55,8 +55,7 @@ get_latest_date(){
 	for branch in $branches
 	do	
 		echo "start get recent date in ${branch}"
-		committ=$(cat str_commit_${branch}.log)
-        	grep -Po '(?<="date": ").*?(?=T)' $committ > recent_dd.log
+        	grep -Po '(?<="date": ").*?(?=T)' str_commit_${branch}.log > recent_dd.log
         	sed -n '1p' recent_dd.log >> recent_d.log
 		cat recent_d.log
 	done
