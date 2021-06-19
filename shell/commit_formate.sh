@@ -24,7 +24,7 @@ fi
 
 ## Funvtions
 get_commit_2str(){
-	for branch in branches
+	for branch in $branches
 	do
 		curl -so get_commit_${branch}.log "https://api.github.com/repos/$1/$2/commits?sha=$branch" 
 		sed -i 's/\[//' get_commit_${branch}.log
@@ -65,7 +65,7 @@ get_latest_date(){
 }
 
 generate_info(){
-	for branch in branches
+	for branch in $branches
 	do
 		while read line
 		do	
