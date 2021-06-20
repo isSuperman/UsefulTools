@@ -109,9 +109,9 @@ generate_info(){
 				then
 					if [ -f "day3.log" ]
 					then
-						echo "\n\n- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
+						echo "\n\n- ${branch^}:\n${nbs[dayy]} ${line}" >> day3.log
 					else
-						echo "\n- ${branch}:\n${nbs[dayy]} ${line}" >> day3.log
+						echo "\n- ${branch^}:\n${nbs[dayy]} ${line}" >> day3.log
 					fi
 				else
 					echo "\n${nbs[dayy]} ${line}" >> day3.log
