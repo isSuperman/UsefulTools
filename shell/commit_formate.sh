@@ -77,7 +77,7 @@ get_latest_date(){
 		fi
 	done < "./recent_d_sec.log"
 	recent_date=$(date -d @$max '+%Y-%m-%d')
-	echo "latest date is ${recent_date}"
+	echo "${recent_date}" >> cominfo.log
 }
 
 generate_info(){
@@ -138,6 +138,8 @@ formate_result(){
 	sed -i 's/&/and/g' day3.log
 	sed -i "s/'//g" day3.log
 	sed -i 's,https:\/\/github.com\/,Github,g' day3.log
+	com_info=$(cat day3.log)
+	echo "${com_info}"  >> cominfo.log
 }
 
 clean_cache_file(){
@@ -157,10 +159,6 @@ get_latest_date
 generate_info
 formate_result
 
-com_info=$(cat day3.log)
-
-echo "${recent_date}" >> cominfo.log
-echo "${com_info}"  >> cominfo.log
 echo $(cat cominfo.log)
 
 clean_cache_file
