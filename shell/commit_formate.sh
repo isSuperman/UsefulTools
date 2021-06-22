@@ -78,7 +78,6 @@ get_latest_date(){
 	done < "./recent_d_sec.log"
 	recent_date=$(date -d @$max '+%Y-%m-%d')
 	echo "latest date is ${recent_date}"
-	echo "${recent_date}" > recent_date.log
 }
 
 generate_info(){
@@ -137,6 +136,7 @@ formate_result(){
 	sed -i 's#\\([^)]*)##g' day3.log
 	sed -i 's/\_/\\-/g' day3.log
 	sed -i 's/&/and/g' day3.log
+	sed -i "s/'//g" day3.log
 	sed -i 's,https:\/\/github.com\/,Github,g' day3.log
 }
 
@@ -156,7 +156,7 @@ formate_commits_2str
 get_latest_date
 generate_info
 formate_result
+
+com_info=$(cat day3.log)
+
 clean_cache_file
-
-sed -i "s/'//g" day3.log
-
