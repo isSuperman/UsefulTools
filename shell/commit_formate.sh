@@ -77,9 +77,9 @@ get_latest_date(){
 		fi
 	done < "./recent_d_sec.log"
 	recent_date=$(date -d @$max '+%Y-%m-%d')
-	sed -i "s/${now_year}-//g" $recent_date
-	sed -i 's/\-/\\./g' $recent_date
 	echo "${recent_date}" >> cominfo.log
+	sed -i "s/${now_year}-//g" cominfo.log
+	sed -i 's/\-/\\./g' cominfo.log
 }
 
 generate_info(){
