@@ -158,5 +158,5 @@ generate_info
 formate_result
 clean_cache_file
 
-sed -i "s/\'//g" day3.log
+sed -i "s#\'##g" day3.log
 
