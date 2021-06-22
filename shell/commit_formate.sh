@@ -157,6 +157,6 @@ generate_info
 formate_result
 
 com_info=$(cat day3.log)
-echo "${com_info}"
+echo "${recent_date}\n${com_info}" 
 
 clean_cache_file
