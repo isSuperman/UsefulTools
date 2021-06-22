@@ -24,20 +24,20 @@ then
   exit 1
 fi
 
-## Funvtions
+## Functions
 get_commits(){
 	for branch in $branches
 	do	
-		echo "start get ${branch}"
+		#echo "start get ${branch}"
 		curl -so get_commit_${branch}.log "https://api.github.com/repos/${ower}/${repo_name}/commits?sha=${branch}" 
-		echo "get ${branch} over"
+		#echo "get ${branch} over"
 		
 	done
 }
 formate_commits_2str(){
 	for branch in $branches
 	do
-		echo "start formate get_commit_${branch}.log"
+		#echo "start formate get_commit_${branch}.log"
 		sed -i 's/\[//' get_commit_${branch}.log
 		sed -i 's/\]//' get_commit_${branch}.log
 		sed -i 's#{##' get_commit_${branch}.log
@@ -47,17 +47,17 @@ formate_commits_2str(){
 		sed -i ':a;N;$!ba;s/\n//g' get_commit_${branch}.log
 		grep -Po '"commit":.*?(?=","tree)' get_commit_${branch}.log > str_commit_${branch}.log
 		sed -i 's/\\n\\n.*$//g' str_commit_${branch}.log
-		echo "formate over"
+		#echo "formate over"
 	done
 }
 
 get_latest_date(){
 	for branch in $branches
 	do	
-		echo "start get recent date in ${branch}"
+		#echo "start get recent date in ${branch}"
         	grep -Po '(?<="date": ").*?(?=T)' str_commit_${branch}.log > recent_dd.log
         	sed -n '1p' recent_dd.log >> recent_d.log
-		cat recent_d.log
+		#cat recent_d.log
 	done
 	
 	while read line
@@ -65,8 +65,8 @@ get_latest_date(){
 		echo "$(date -d "${line}" +%s)" >> recent_d_sec.log
 	done < './recent_d.log'
 	
-	echo "recent_d_sec::::::::"
-	cat recent_d_sec.log
+	#echo "recent_d_sec::::::::"
+	#cat recent_d_sec.log
 	
 	max=$(sed -n '1p' recent_d_sec.log)
 	while read line
@@ -76,8 +76,8 @@ get_latest_date(){
 			max=$line
 		fi
 	done < "./recent_d_sec.log"
-	echo "max is ${max}"
 	recent_date=$(date -d @$max '+%Y-%m-%d')
+	echo "latest date is ${recent_date}"
 	echo "${recent_date}" > recent_date.log
 }
 
@@ -140,12 +140,23 @@ formate_result(){
 	sed -i 's,https:\/\/github.com\/,Github,g' day3.log
 }
 
+clean_cache_file(){
+	rm -rf get_commit_*
+	rm -rf str_commit_*
+	rm -rf recent_dd.log
+	rm -rf recent_d.log
+	rm -rf recent_d_sec.log
+	rm -rf day_*
+	rm -rf day2_*
+}
+
 # Call funtions
 get_commits
 formate_commits_2str
 get_latest_date
 generate_info
 formate_result
+clean_cache_file
 
-sed -i $'s/\'//g' day3.log
+sed -i "s/\'//g" day3.log
 
