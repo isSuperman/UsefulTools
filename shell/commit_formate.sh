@@ -138,8 +138,7 @@ formate_result(){
 	sed -i 's/&/and/g' day3.log
 	sed -i "s/'//g" day3.log
 	sed -i 's,https:\/\/github.com\/,Github,g' day3.log
-	com_info=$(cat day3.log)
-	echo "${com_info}"  >> cominfo.log
+	echo "$(cat day3.log)"  >> cominfo.log
 }
 
 clean_cache_file(){
