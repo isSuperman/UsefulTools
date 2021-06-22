@@ -158,6 +158,6 @@ get_latest_date
 generate_info
 formate_result
 
-echo $(cat cominfo.log)
+echo "$(cat cominfo.log)"
 
 clean_cache_file
