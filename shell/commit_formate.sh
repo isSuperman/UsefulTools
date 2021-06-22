@@ -146,8 +146,7 @@ clean_cache_file(){
 	rm -rf recent_dd.log
 	rm -rf recent_d.log
 	rm -rf recent_d_sec.log
-	rm -rf day_*
-	rm -rf day2_*
+	rm -rf day*
 }
 
 # Call funtions
