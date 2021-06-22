@@ -147,6 +147,7 @@ clean_cache_file(){
 	rm -rf recent_d.log
 	rm -rf recent_d_sec.log
 	rm -rf day*
+	rm -rf cominfo.log
 }
 
 # Call funtions
@@ -157,6 +158,9 @@ generate_info
 formate_result
 
 com_info=$(cat day3.log)
-echo "${recent_date}\n${com_info}" 
+
+echo "${recent_date}" >> cominfo.log
+echo "${com_info}"  >> cominfo.log
+echo $(cat cominfo.log)
 
 clean_cache_file
