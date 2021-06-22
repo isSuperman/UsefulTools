@@ -14,6 +14,7 @@ now_year=$(date +"%Y")
 branches="lede luci packages helloworld"
 ower=$1
 repo_name=$2
+recent_date=""
 
 nbs=(0 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ㊶ ㊷ ㊸ ㊹ ㊺ ㊻ ㊼ ㊽ ㊾ ㊿)
 
@@ -77,6 +78,7 @@ get_latest_date(){
 		fi
 	done < "./recent_d_sec.log"
 	echo "$(date -d @$max '+%Y-%m-%d')" > cominfo.log
+	recent_date=$(cat cominfo.log)
 	sed -i "s/${now_year}-//g" cominfo.log
 	sed -i 's/\-/\\./g' cominfo.log
 }
