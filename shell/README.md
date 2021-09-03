@@ -10,11 +10,8 @@
 <summary>点击展开</summary>
 
 ```shell
-./commit_formate.sh [user] [repo] *[date]
+./commit_formate.sh *[date]
 ```
-  
-- 第一个参数 仓库所有者名字 *必填*
-- 第二个参数 仓库名 *必填*
 - 第三个参数 commit提交日期 格式 2021-01-01 选填
 </details>
 
