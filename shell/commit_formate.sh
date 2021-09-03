@@ -5,8 +5,6 @@
 # https://github.com/IsSuperman/op-firemae
 # File name: commit_formate.sh
 # Description: 格式化commit信息lede专用
-# $1 仓库所有者名字
-# $2 仓库名字
 #
 
 now=$(date +"%Y-%m-%d")
