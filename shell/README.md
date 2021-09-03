@@ -10,9 +10,8 @@
 <summary>点击展开</summary>
 
 ```shell
-./commit_formate.sh *[date]
+./commit_formate.sh
 ```
-- 第三个参数 commit提交日期 格式 2021-01-01 选填
 </details>
 
 ### 输出
