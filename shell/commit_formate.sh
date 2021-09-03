@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #
-# Copyright (c) 2019-2021 IsSuperman
-# https://github.com/IsSuperman/op-firemae
+# Copyright (c) 2019-2021 isSuperman
+# https://github.com/isSuperman/op-firemae
 # File name: commit_formate.sh
 # Description: 格式化commit信息lede专用
 #
@@ -14,12 +14,6 @@ recent_date=""
 
 nbs=(0 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ㊶ ㊷ ㊸ ㊹ ㊺ ㊻ ㊼ ㊽ ㊾ ㊿)
 
-
-if [[ "$#" < 2 ]]
-then
-  echo "给定参数缺失"
-  exit 1
-fi
 
 ## Functions
 get_commits(){
