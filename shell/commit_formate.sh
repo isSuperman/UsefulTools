@@ -12,8 +12,6 @@
 now=$(date +"%Y-%m-%d")
 now_year=$(date +"%Y")
 branches="lede luci packages helloworld"
-ower=$1
-repo_name=$2
 recent_date=""
 
 nbs=(0 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ㊶ ㊷ ㊸ ㊹ ㊺ ㊻ ㊼ ㊽ ㊾ ㊿)
@@ -27,13 +25,10 @@ fi
 
 ## Functions
 get_commits(){
-	for branch in $branches
-	do	
-		#echo "start get ${branch}"
-		curl -so get_commit_${branch}.log "https://api.github.com/repos/${ower}/${repo_name}/commits?sha=${branch}" 
-		#echo "get ${branch} over"
-		
-	done
+	curl -so get_commit_lede.log "https://api.github.com/repos/coolsnowwolf/lede/commits"
+	curl -so get_commit_luci.log "https://api.github.com/repos/coolsnowwolf/luci/commits" 
+	curl -so get_commit_packages.log "https://api.github.com/repos/coolsnowwolf/packages/commits" 
+	curl -so get_commit_helloworld.log "https://api.github.com/repos/immortalwrt/lean-lede/commits?sha=helloworld" 
 }
 formate_commits_2str(){
 	for branch in $branches
