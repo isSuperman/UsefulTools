@@ -125,6 +125,7 @@ formate_result(){
 	sed -i 's/\_/\\-/g' day3.log
 	sed -i 's/&/and/g' day3.log
 	sed -i "s/'//g" day3.log
+	sed -i 's#*#\\*#g' day3.log
 	sed -i 's,https://github\\.com/,,g' day3.log
 	echo "$(cat day3.log)"  >> cominfo.log
 }
